@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { Button } from "@nextui-org/button";
 import { Divider } from "@nextui-org/divider";
 import { Textarea } from "@nextui-org/input";
+import { Suspense } from "react";
 
 import CheckBoxTech from "@/components/technologies";
 import CheckBoxMentor from "@/components/mentors";
@@ -15,6 +16,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col gap-10">
+      <Suspense fallback={<p>Loading...</p>} >
       <h1 className="text-5xl font-extrabold">{message}</h1>
       <Divider />
       <CheckBoxTech />
@@ -38,6 +40,7 @@ export default function Home() {
         onClear={() => console.log("textarea cleared")}
       />
       <Button className="w-1/12" color="default">Submit</Button>
+      </Suspense>
     </div>
   );
 }
