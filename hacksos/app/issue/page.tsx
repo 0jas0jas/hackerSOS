@@ -11,13 +11,12 @@ import CheckBoxTech from "@/components/technologies";
 import CheckBoxMentor from "@/components/mentors";
 
 export default function Home() {
-  const searchParams = useSearchParams();
-  const message = searchParams.get("message");
-
   return (
     <div className="flex flex-col gap-10">
       <Suspense fallback={<p>Loading...</p>} >
-      <h1 className="text-5xl font-extrabold">{message}</h1>
+        <Suspense fallback={<p>Loading search params...</p>}>
+          <SearchParamsComponent />
+        </Suspense>
       <Divider />
       <CheckBoxTech />
       <CheckBoxMentor />
@@ -43,4 +42,11 @@ export default function Home() {
       </Suspense>
     </div>
   );
+}
+
+function SearchParamsComponent() {
+  const searchParams = useSearchParams();
+  const message = searchParams.get("message");
+
+  return <h1 className="text-5xl font-extrabold">{message}</h1>;
 }
