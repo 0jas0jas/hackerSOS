@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { Select, SelectItem, SharedSelection } from "@nextui-org/react";
+import { SharedSelection } from "@nextui-org/system";
+import { Select, SelectItem } from "@nextui-org/select";
 
 export const professors = [
   {
