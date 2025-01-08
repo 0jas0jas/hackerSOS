@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Select, SelectItem } from "@nextui-org/react";
+import { Select, SelectItem } from "@nextui-org/select";
 
 export const subjects = [
   { key: "DADA", label: "Defense Against the Dark Arts" },
