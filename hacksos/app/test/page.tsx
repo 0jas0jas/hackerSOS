@@ -10,9 +10,9 @@ const TestPage: React.FC = () => {
   const searchParams = useSearchParams();
   const accessToken = searchParams.get('access_token');
 
-  if (!accessToken) {
-      return <div>Please log in to create an issue.</div>;
-  }
+  // if (!accessToken) {
+  //     return <div>Please log in to create an issue.</div>;
+  // }
 
   
   return (
