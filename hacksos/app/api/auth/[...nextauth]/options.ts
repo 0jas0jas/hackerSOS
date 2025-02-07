@@ -12,6 +12,11 @@ export const options: AuthOptions = {
     GitHubProvider({
       clientId: process.env.NEXT_PUBLIC_GHCLIENTID || "",
       clientSecret: process.env.NEXT_PUBLIC_GHCLIENTSECRET || "",
+      authorization: {
+        params: {
+          scope: "repo read:user user:email", // Request the 'repo' scope along with 'read:user' and 'user:email'
+        },
+      },
     }),
   ],
   callbacks: {
