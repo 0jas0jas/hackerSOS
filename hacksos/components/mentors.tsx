@@ -61,8 +61,8 @@ export default function App() {
       ))}
       </select>
 
-      <p className="text-small text-default-500">
-      Description: {selectedDesc || "None"}
+      <p className="text-sm text-default-500">
+      {selectedDesc || ""}
       </p>
     </div>
   );
