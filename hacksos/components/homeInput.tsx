@@ -15,31 +15,29 @@ const HomeInput: React.FC = () => {
 
     return (
         <div className="flex flex-auto items-start justify-center" style={{ textAlign: 'center', minHeight: '200px' }}>
-            <Input
-                className='w-1/2 rounded-r-none'
-                placeholder="Enter your message"
-                type="text"
-                value={message}
-                variant="flat"
-                onChange={(e) => setMessage(e.target.value)}
-                size='lg'
-                radius='none'
-                onKeyDown={handleKeyDown}
+            <input
+            className="input rounded-r-none input-bordered input-md w-1/2 focus:outline-none focus:ring-0"
+            placeholder="Type your issue here"
+            type="text"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            onKeyDown={handleKeyDown}
             />
             {message.trim() !== '' ? (
-                <Link
-                    href={{
-                        pathname: '/issue',
-                        query: { message }
-                    }}
-                >
-                    <Button className="rounded-l-none" size="lg">
-                    </Button>
-                </Link>
+            <Link
+            className='w-1/12'
+            href={{
+            pathname: '/issue',
+            query: { message }
+            }}
+            >
+            <button className="btn rounded-l-none w-full">
+            </button>
+            </Link>
             ) : (
-                // Button is rendered but disabled when message is empty
-                <Button className="rounded-l-none" size="lg" disabled>
-                </Button>
+            // Button is rendered but disabled when message is empty
+            <button className="btn btn-md rounded-l-none w-1/12" disabled={true}>
+            </button>
             )}
         </div>
     );
