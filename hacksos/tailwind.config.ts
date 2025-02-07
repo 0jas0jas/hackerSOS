@@ -1,23 +1,15 @@
-import type { Config } from "tailwindcss";
-import daisyui from "daisyui";
-
+import daisyui from 'daisyui';
 
 export default {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+    './app/**/*.{js,ts,jsx,tsx}',
+    // Add paths to your NextUI components if needed
+    './node_modules/@nextui-org/react/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-      },
-    },
-  },
-  daisyui: {
-    themes: ["dracula"],
+    extend: {},
   },
   plugins: [daisyui],
-} satisfies Config;
+};

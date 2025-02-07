@@ -17,10 +17,11 @@ export default function Home() {
         <Suspense fallback={<p>Loading search params...</p>}>
           <SearchParamsComponent />
         </Suspense>
-      <Divider />
-      <CheckBoxTech />
-      <CheckBoxMentor />
-      <Textarea
+        <div className="divider"></div>
+        <div className="flex flex-col gap-10 w-1/2">
+          <CheckBoxTech />
+          <CheckBoxMentor />
+          {/* <Textarea
         isClearable
         className="w-1/2"
         label="Describe your issue"
@@ -28,17 +29,22 @@ export default function Home() {
         variant="bordered"
         // eslint-disable-next-line no-console
         onClear={() => console.log("textarea cleared")}
-      />
-      <Textarea
-        isClearable
-        className="w-1/2"
-        label="Enter your code here"
-        placeholder="Code"
-        variant="underlined"
-        // eslint-disable-next-line no-console
-        onClear={() => console.log("textarea cleared")}
-      />
-      <Button className="w-1/12" color="default">Submit</Button>
+      /> */}
+
+          <textarea className="textarea textarea-bordered" placeholder="Description"></textarea>
+          {/* <Textarea
+          isClearable
+          className="w-1/2"
+          label="Enter your code here"
+          placeholder="Code"
+          variant="underlined"
+          // eslint-disable-next-line no-console
+          onClear={() => console.log("textarea cleared")}
+        /> */}
+
+          <textarea className="textarea textarea-ghost border-b-error" placeholder="Code"></textarea>
+          <button className="w-1/6 btn" color="default">Submit</button>
+        </div>
       </Suspense>
     </div>
   );

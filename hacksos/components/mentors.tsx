@@ -42,20 +42,27 @@ export default function App() {
 
   return (
     <div className="flex w-1/2 flex-col gap-2">
-      <Select
-        className="w-full"
-        label="Professor"
-        placeholder="Select a professor"
-        selectedKeys={value}
-        variant="bordered"
-        onSelectionChange={onSelectionChange}
+      <select
+      className="select w-full max-w-xs select-bordered"
+      onChange={(e) => {
+        const selectedKey = e.target.value;
+        setValue(new Set([selectedKey]));
+        const professor = professors.find((prof) => prof.key === selectedKey);
+        setSelectedDesc(professor ? professor.description : null);
+      }}
       >
-        {professors.map((prof) => (
-          <SelectItem key={prof.key}>{prof.label}</SelectItem>
-        ))}
-      </Select>
+      <option disabled selected>
+        Select a professor
+      </option>
+      {professors.map((prof) => (
+        <option key={prof.key} value={prof.key}>
+        {prof.label}
+        </option>
+      ))}
+      </select>
+
       <p className="text-small text-default-500">
-        Description: {selectedDesc || "None"}
+      Description: {selectedDesc || "None"}
       </p>
     </div>
   );

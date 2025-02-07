@@ -20,12 +20,6 @@ export const metadata: Metadata = {
 
 };
 
-export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
-  ],
-};
 
 export default function RootLayout({
   children,
@@ -41,7 +35,6 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
-        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
          <Navbar />
 
           <div className="relative flex flex-col h-screen">
@@ -68,7 +61,6 @@ export default function RootLayout({
               </Link>
             </footer>
           </div>
-        </Providers>
       </body>
     </html>
   );
