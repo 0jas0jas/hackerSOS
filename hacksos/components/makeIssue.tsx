@@ -9,9 +9,6 @@ interface MakeIssueProps {
 
 const MakeIssue: React.FC<MakeIssueProps> = ({ title, description, accessToken }) => {
     const createIssue = async () => {
-        console.log("Hi I've made it here and the code is");
-        console.log(accessToken);
-
         const repo = '0jas0jas/hackerSOS'; // Replace with your repository
         const [owner, repoName] = repo.split('/');
 
@@ -36,10 +33,6 @@ const MakeIssue: React.FC<MakeIssueProps> = ({ title, description, accessToken }
         } catch (error) {
             if (error instanceof Error) {
                 console.error('Error creating issue:', error.message);
-                if ('response' in error && error.response) {
-                    console.error('Response data:', (error.response as any).data);
-                    console.error('Response status:', (error.response as any).status);
-                }
             } else {
                 console.error('Unknown error:', error);
             }
