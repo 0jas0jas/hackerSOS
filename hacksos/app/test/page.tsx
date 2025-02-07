@@ -1,27 +1,27 @@
-'use client'
+'use client';
 
 import React from 'react';
-import MakeIssue from '@/components/makeIssue';
-import LoginButton from '@/components/ghLogin';
-import { useSearchParams } from 'next/navigation';
+import { useSession } from "next-auth/react";
+import MakeIssue from '../../components/makeIssue';
+import LoginButton from '../../components/ghLogin';
 
 const TestPage: React.FC = () => {
+    const { data: session } = useSession();
 
-  const searchParams = useSearchParams();
-  const accessToken = searchParams.get('access_token');
+    if (!session) {
+        return (
+            <div>
+                <LoginButton />
+                <p>Please log in to create an issue.</p>
+            </div>
+        );
+    }
 
-  // if (!accessToken) {
-  //     return <div>Please log in to create an issue.</div>;
-  // }
-
-  
-  return (
-    <div>
-      <h1> Is this working </h1>
-      <LoginButton />
-      <MakeIssue title="Test Issue" description="This is a test issue." accessToken={''} />
-    </div>
-  );
+    return (
+        <div>
+            <MakeIssue title="Test Issue" description="This is a test issue." accessToken={session.accessToken} />
+        </div>
+    );
 };
 
 export default TestPage;
