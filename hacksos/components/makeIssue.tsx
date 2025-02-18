@@ -50,3 +50,5 @@ const MakeIssue: React.FC<MakeIssueProps> = ({ title, description, accessToken }
 };
 
 export default MakeIssue;
+
+
